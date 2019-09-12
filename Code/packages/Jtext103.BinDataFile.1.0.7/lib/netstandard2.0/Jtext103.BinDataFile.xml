@@ -1,0 +1,155 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Jtext103.BinDataFile</name>
+    </assembly>
+    <members>
+        <member name="T:Jtext103.BinDataFile.DataConfigFile">
+            <summary>
+            读取数据时必须的配置文件
+            （写数据结束后新建）
+            </summary>
+        </member>
+        <member name="P:Jtext103.BinDataFile.DataConfigFile.TotalChannelCount">
+            <summary>
+            通道个数
+            </summary>
+        </member>
+        <member name="P:Jtext103.BinDataFile.DataConfigFile.TotalSampleCount">
+            <summary>
+            每通道数据总个数
+            </summary>
+        </member>
+        <member name="P:Jtext103.BinDataFile.DataConfigFile.SampleCountPerTime">
+            <summary>
+            每次每通道写数据个数
+            </summary>
+        </member>
+        <member name="P:Jtext103.BinDataFile.DataConfigFile.SampleRate">
+            <summary>
+            采样率
+            </summary>
+        </member>
+        <member name="M:Jtext103.BinDataFile.DataConfigFile.#ctor">
+            <summary>
+            什么都不做，仅供writer使用
+            </summary>
+        </member>
+        <member name="M:Jtext103.BinDataFile.DataConfigFile.#ctor(System.Int32,System.Int64,System.Int32,System.Double)">
+            <summary>
+            通过指定参数构造实例
+            </summary>
+            <param name="totalChannelCount"></param>
+            <param name="totalSampleCount"></param>
+            <param name="sampleCountPerTime"></param>
+            <param name="sampleRate"></param>
+        </member>
+        <member name="M:Jtext103.BinDataFile.DataConfigFile.#ctor(System.String)">
+            <summary>
+            直接从配置文件构造实例
+            </summary>
+            <param name="configFilePath"></param>
+        </member>
+        <member name="M:Jtext103.BinDataFile.DataConfigFile.Load(System.String)">
+            <summary>
+            从配置文件中创建对应配置文件的实例
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jtext103.BinDataFile.DataConfigFile.Save(System.String)">
+            <summary>
+            保存文件
+            </summary>
+            <param name="path"></param>
+        </member>
+        <member name="M:Jtext103.BinDataFile.DataReader.LoadDataFromFile(System.Int32,System.Int64,System.Int32)">
+            <summary>
+            从文件中读出指定通道的数据片段
+            </summary>
+            <param name="channelNo">指定的通道，从0开始</param>
+            <param name="start">大于等于0</param>
+            <param name="length">如果小于0则代表从start开始，读余下的所有点；大于等于零则代表读length个数的点,目前最多只支持int32，即大约8g数据</param>
+            <returns></returns>
+        </member>
+        <member name="T:Jtext103.BinDataFile.DataWriter">
+            <summary>
+            暂时保存采集到的的数据并将其按一定格式存入文件
+            </summary>
+        </member>
+        <member name="P:Jtext103.BinDataFile.DataWriter.ConfigFilePath">
+            <summary>
+            任务完成后，写配置文件的路径
+            </summary>
+        </member>
+        <member name="P:Jtext103.BinDataFile.DataWriter.TotalSampleCount">
+            <summary>
+            每通道写入数据总数
+            </summary>
+        </member>
+        <member name="P:Jtext103.BinDataFile.DataWriter.DataNeedTransposeWhenSaving">
+            <summary>
+            数据是否需要转置
+            </summary>
+        </member>
+        <member name="M:Jtext103.BinDataFile.DataWriter.#ctor(System.String,System.String,System.Int32,System.Double,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="dataFilePath">存文件的完整路径</param>
+            <param name="configFilePath">存配置文件的完整路径</param>
+            <param name="channelCount"></param>
+            <param name="sampleRate"></param>
+            <param name="dataNeedTransposeWhenSaving"></param>
+        </member>
+        <member name="M:Jtext103.BinDataFile.DataWriter.AcceptNewData(System.Double[0:,0:])">
+            <summary>
+            接收新数据
+            将新数据放入队列中
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="M:Jtext103.BinDataFile.DataWriter.FinishWrite">
+            <summary>
+            采集停止，将不再传入新数据
+            该方法会卡住主进程
+            一直等待队列中数据写完
+            </summary>
+        </member>
+        <member name="M:Jtext103.BinDataFile.DataWriter.waitUntilFinish">
+            <summary>
+            一直等待，直到队列中数据写完
+            </summary>
+        </member>
+        <member name="M:Jtext103.BinDataFile.DataWriter.OperateFile">
+            <summary>
+            操作数据文件
+            1.（异步）不断将数据写入流
+            2.完成后，关闭流，保存数据文件
+            3.保存配置文件
+            4.IsFinished = true
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Jtext103.BinDataFile.DataWriter.sendDataToBinaryWriter">
+            <summary>
+            数据出队列，并写入流中
+            第一次读到数据时设置configFile.SampleCountPerTime
+            只要queue中有数据，就要一直写
+            </summary>
+            <param name="fileBinaryWriter"></param>
+        </member>
+        <member name="M:Jtext103.BinDataFile.DataWriter.AppendDataToBinaryWriter(System.Double[0:,0:],System.Boolean)">
+            <summary>
+            将数据写入BinaryWriter中
+            将二维数组转为一维数组，再存入文件
+            存入文件的数据格式为ch0[0],ch0[1],ch0[2]...ch1[0],ch1[1],ch1[2]...ch2[0],ch1[1],ch2[2]...
+            如果数据格式为“data[通道个数][每通道数据个数]”则不需要转置；即与保存的格式相同
+            如果数据格式为“data[每通道数据个数][通道个数]”则需要转置后，再保存
+            数据均为double格式
+            </summary>
+            <param name="data"></param>
+            <param name="needTranspose"></param>
+        </member>
+    </members>
+</doc>

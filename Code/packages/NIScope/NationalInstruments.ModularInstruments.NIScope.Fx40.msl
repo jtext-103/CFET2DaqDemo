@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<DotNETComponent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Visible>true</Visible>
+    <SupportedProjectTypes>
+        <string>WindowsFormsApplication2010</string>
+    </SupportedProjectTypes>
+    <SelectedByDefault>false</SelectedByDefault>
+    <Title>Measurement Studio Hardware Class Libraries/NI-SCOPE Library</Title>
+    <Description>Contains classes for configuring and controlling NI high-speed digitizers using the NI-SCOPE driver.</Description>
+    <Name2010>NationalInstruments.ModularInstruments.NIScope.Fx40</Name2010>
+    <Licensed>false</Licensed>
+    <Dependencies>
+        <DotNETAssembly>
+            <Name>NationalInstruments.ModularInstruments.Common</Name>
+        </DotNETAssembly>
+    </Dependencies>
+    <ThirdPartyDependencies>
+        <string>Ivi.Driver</string>
+        <string>Ivi.Scope</string>
+    </ThirdPartyDependencies>
+    <Namespaces>
+        <string>NationalInstruments.ModularInstruments.NIScope</string>
+    </Namespaces>
+</DotNETComponent>

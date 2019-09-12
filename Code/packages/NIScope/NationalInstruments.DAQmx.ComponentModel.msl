@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<DotNETComponent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ToolBoxPriority>1</ToolBoxPriority>
+    <Visible>false</Visible>
+    <SupportedProjectTypes>
+        <string>CppCLI2010</string>
+        <string>WindowsFormsApplication2010</string>
+    </SupportedProjectTypes>
+    <SelectedByDefault>false</SelectedByDefault>
+    <Title>DAQmx Component Model</Title>
+    <Description>Contains the Measurement Studio base classes for DAQ components.</Description>
+    <Name2010>NationalInstruments.DAQmx.ComponentModel</Name2010>
+    <Licensed>false</Licensed>
+    <Dependencies>
+        <DotNETAssembly>
+            <Name>NationalInstruments.DAQmx</Name>
+        </DotNETAssembly>
+    </Dependencies>
+    <Namespaces>
+        <string>NationalInstruments.DAQmx.ComponentModel</string>
+    </Namespaces>
+    <ToolBoxItems>
+        <string>NationalInstruments.DAQmx.ComponentModel.DaqComponent</string>
+    </ToolBoxItems>
+</DotNETComponent>

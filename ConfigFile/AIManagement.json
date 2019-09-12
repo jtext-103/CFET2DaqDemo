@@ -1,0 +1,12 @@
+{
+	"AIThings":{
+		"AllAIThingPaths":[
+			"/Card0"
+		],
+		"AutoArmAIThingPaths":[
+			
+		]
+	},
+	"DelaySecondAfterFinish":10
+}
+	

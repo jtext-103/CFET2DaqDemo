@@ -1,0 +1,391 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NationalInstruments.ModularInstruments.ModularInstrumentsSystem</name>
+    </assembly>
+    <members>
+        <member name="T:NationalInstruments.ModularInstruments.SystemServices.DeviceServices.DeviceInfo">
+            <summary>
+            Represents the class that contains information about the devices connected to the system.
+            </summary>
+            <remarks>
+            The information includes the bus number, chassis number, model, name, 
+            serial number, slot number, and socket number of the device connected to the 
+            system.	
+            </remarks>
+            <threadsafety safety="unsafe"/>
+            <lastupdated>12/8/2006 2:37:18 PM</lastupdated>
+            <updatedby>NI</updatedby>
+            <approved>True</approved>
+        </member>
+        <member name="P:NationalInstruments.ModularInstruments.SystemServices.DeviceServices.DeviceInfo.Name">
+            <summary>
+            Gets the name of the device represented by the DeviceInfo object, which can be used to open an instrument driver session for that device.
+            </summary>
+            <value>
+            The name of the device connected to the system.
+            </value>
+            <exception cref="T:System.ObjectDisposedException">
+            The <see cref="T:NationalInstruments.ModularInstruments.SystemServices.DeviceServices.ModularInstrumentsSystem"/> object that contained the DeviceInfo object 
+            has been disposed.
+            </exception>
+            <lastupdated>12/18/2007 3:30:59 PM</lastupdated>
+            <updatedby>Measurement Studio</updatedby>
+            <approved>True</approved>
+        </member>
+        <member name="P:NationalInstruments.ModularInstruments.SystemServices.DeviceServices.DeviceInfo.Model">
+            <summary>
+            Gets the model of the device represented by the DeviceInfo object.
+            </summary>
+            <value>
+            The model of the device connected to the system.
+            </value>
+            <exception cref="T:System.ObjectDisposedException">
+            The <see cref="T:NationalInstruments.ModularInstruments.SystemServices.DeviceServices.ModularInstrumentsSystem"/> object that contained the DeviceInfo object 
+            has been disposed.
+            </exception>
+            <lastupdated>12/18/2007 3:30:52 PM</lastupdated>
+            <updatedby>Measurement Studio</updatedby>
+            <approved>True</approved>
+        </member>
+        <member name="P:NationalInstruments.ModularInstruments.SystemServices.DeviceServices.DeviceInfo.SerialNumber">
+            <summary>
+            Gets the serial number of the device represented by the DeviceInfo object.
+            </summary>
+            <value>
+            The serial number of the device connected to the system.
+            </value>
+            <exception cref="T:System.ObjectDisposedException">
+            The <see cref="T:NationalInstruments.ModularInstruments.SystemServices.DeviceServices.ModularInstrumentsSystem"/> object that contained the DeviceInfo object 
+            has been disposed.
+            </exception>
+            <lastupdated>12/18/2007 3:31:07 PM</lastupdated>
+            <updatedby>Measurement Studio</updatedby>
+            <approved>True</approved>
+        </member>
+        <member name="P:NationalInstruments.ModularInstruments.SystemServices.DeviceServices.DeviceInfo.SocketNumber">
+            <summary>
+            Gets the socket number of the device represented by the DeviceInfo object.
+            </summary>
+            <value>
+            The socket number of the device connected to the system.
+            </value>
+            <exception cref="T:System.ObjectDisposedException">
+            The <see cref="T:NationalInstruments.ModularInstruments.SystemServices.DeviceServices.ModularInstrumentsSystem"/> object that contained the DeviceInfo object 
+            has been disposed.
+            </exception>
+            <lastupdated>12/18/2007 3:31:30 PM</lastupdated>
+            <updatedby>Measurement Studio</updatedby>
+            <approved>True</approved>
+        </member>
+        <member name="P:NationalInstruments.ModularInstruments.SystemServices.DeviceServices.DeviceInfo.SlotNumber">
+            <summary>
+            Gets the slot number of the device represented by the DeviceInfo object. This attribute can only be queried for PXI devices installed in a
+            chassis that has been properly identified in Measurement <entity value="#38"/> Automation Explorer. 
+            </summary>
+            <value>
+            The slot number of the device connected to the system.
+            </value>
+            <exception cref="T:System.ObjectDisposedException">
+            The <see cref="T:NationalInstruments.ModularInstruments.SystemServices.DeviceServices.ModularInstrumentsSystem"/> object that contained the DeviceInfo object 
+            has been disposed.
+            </exception>
+            <lastupdated>12/18/2007 3:31:21 PM</lastupdated>
+            <updatedby>Measurement Studio</updatedby>
+            <approved>True</approved>
+        </member>
+        <member name="P:NationalInstruments.ModularInstruments.SystemServices.DeviceServices.DeviceInfo.ChassisNumber">
+            <summary>
+            Gets the chassis number of the device represented by the DeviceInfo object.
+            This attribute can only be queried for PXI devices installed in a
+            chassis that has been properly identified in Measurement <entity value="#38"/> Automation Explorer.
+            </summary>
+            <value>
+            The chassis number of the device connected to the system.
+            </value>
+            <exception cref="T:System.ObjectDisposedException">
+            The <see cref="T:NationalInstruments.ModularInstruments.SystemServices.DeviceServices.ModularInstrumentsSystem"/> object that contained the DeviceInfo object 
+            has been disposed.
+            </exception>
+            <lastupdated>12/18/2007 3:30:43 PM</lastupdated>
+            <updatedby>Measurement Studio</updatedby>
+            <approved>True</approved>
+        </member>
+        <member name="P:NationalInstruments.ModularInstruments.SystemServices.DeviceServices.DeviceInfo.BusNumber">
+            <summary>
+            Gets the bus number of the device represented by the DeviceInfo object.
+            </summary>
+            <value>
+            The bus number of the device connected to the system.
+            </value>
+            <exception cref="T:System.ObjectDisposedException">
+            The <see cref="T:NationalInstruments.ModularInstruments.SystemServices.DeviceServices.ModularInstrumentsSystem"/> object that contained the DeviceInfo object 
+            has been disposed.
+            </exception>
+            <lastupdated>12/18/2007 3:30:28 PM</lastupdated>
+            <updatedby>Measurement Studio</updatedby>
+            <approved>True</approved>
+        </member>
+        <member name="T:NationalInstruments.ModularInstruments.SystemServices.DeviceServices.DeviceInfoCollection">
+            <summary>
+            Represents a strongly typed collection of <see cref="T:NationalInstruments.ModularInstruments.SystemServices.DeviceServices.DeviceInfo"/> objects.
+            </summary>
+            <threadsafety safety="unsafe"/>
+            <lastupdated>12/8/2006 2:35:15 PM</lastupdated>
+            <updatedby>NI</updatedby>
+            <approved>True</approved>
+        </member>
+        <member name="M:NationalInstruments.ModularInstruments.SystemServices.DeviceServices.DeviceInfoCollection.System#Collections#ICollection#CopyTo(System.Array,System.Int32)">
+            <summary>
+             Copies the collection to an array or a portion of an array.
+             </summary>
+            <param name="array">
+             Destination array for the collection.
+             </param>
+            <param name="index">
+             Index in the target array at which you want to begin copying the collection to.
+             </param>
+            <exception cref="T:System.ArgumentException">
+            	<para>
+            		<paramref name="array"/> is multidimensional.
+             </para>
+            	<para>
+             -or-
+             </para>
+            	<para>
+            		<paramref name="index"/> is greater than or equal to the array length.
+             </para>
+            	<para>
+             -or-
+             </para>
+            	<para>
+             The number of elements in the collection is greater than the available space between
+             <paramref name="index"/> and the end of <paramref name="array"/>.
+             </para>
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            	<paramref name="array"/> is <see langword="null"/>.
+             </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            	<paramref name="index"/> is less than zero.
+             </exception>
+            <lastupdated>8/7/2006 11:49:03 AM</lastupdated>
+            <updatedby>Karthk</updatedby>
+            <approved>False</approved>
+        </member>
+        <member name="M:NationalInstruments.ModularInstruments.SystemServices.DeviceServices.DeviceInfoCollection.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Returns an enumerator that can be used to iterate through the collection.
+            </summary>
+            <returns>
+            Enumerator for the collection.
+            </returns>
+            <remarks>
+            For a detailed explanation of this method, refer to <see cref="M:System.Collections.IEnumerable.GetEnumerator"/> in the Microsoft
+            .NET Framework documentation.
+            </remarks>
+            <lastupdated>8/7/2006 11:49:36 AM</lastupdated>
+            <updatedby>Karthk</updatedby>
+            <approved>False</approved>
+        </member>
+        <member name="P:NationalInstruments.ModularInstruments.SystemServices.DeviceServices.DeviceInfoCollection.Item(System.Int32)">
+            <summary>
+            Gets an entry in the collection at the specified index. In Visual C#, this property is the indexer.
+            </summary>
+            <param name="index">
+            Zero-based index of the entry to access in the collection.
+            </param>
+            <value>
+            DeviceInfoCollection represents a strongly typed collection of <see cref="T:NationalInstruments.ModularInstruments.SystemServices.DeviceServices.DeviceInfo"/> objects.
+            </value>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            	<paramref name="index"/> is outside the valid range of indexes for the collection.
+            </exception>
+            <lastupdated>11/1/2006 1:25:06 PM</lastupdated>
+            <updatedby>NI</updatedby>
+            <approved>True</approved>
+        </member>
+        <member name="P:NationalInstruments.ModularInstruments.SystemServices.DeviceServices.DeviceInfoCollection.Count">
+            <summary>
+            Gets the number of elements in the collection, which is equal to the number of DeviceInfo objects.
+            </summary>
+            <value>
+            The number of elements contained in the collection,  which is equal to the number of Device Info objects.
+            </value>
+            <lastupdated>12/18/2007 3:31:39 PM</lastupdated>
+            <updatedby>Measurement Studio</updatedby>
+            <approved>True</approved>
+        </member>
+        <member name="P:NationalInstruments.ModularInstruments.SystemServices.DeviceServices.DeviceInfoCollection.System#Collections#ICollection#Count">
+            <summary>
+            Indicates the number of elements in the collection which is equal to the number of Device Info objects.
+            </summary>
+            <value>
+            The number of elements contained in the collection  which is equal to the number of Device Info objects.
+            </value>
+            <lastupdated>8/7/2006 11:32:44 AM</lastupdated>
+            <updatedby>Karthk</updatedby>
+            <approved>False</approved>
+        </member>
+        <member name="P:NationalInstruments.ModularInstruments.SystemServices.DeviceServices.DeviceInfoCollection.System#Collections#ICollection#IsSynchronized">
+            <summary>
+            Indicates if the  <see cref="T:NationalInstruments.ModularInstruments.SystemServices.DeviceServices.DeviceInfoCollection"/>is
+            synchronized (thread-safe).
+            </summary>
+            <value>
+            	<see langword="true"/> if access to the <see cref="T:NationalInstruments.ModularInstruments.SystemServices.DeviceServices.DeviceInfoCollection"/> is
+            synchronized (thread-safe).
+            </value>
+            <lastupdated>8/7/2006 11:33:46 AM</lastupdated>
+            <updatedby>Karthk</updatedby>
+            <approved>False</approved>
+        </member>
+        <member name="P:NationalInstruments.ModularInstruments.SystemServices.DeviceServices.DeviceInfoCollection.System#Collections#ICollection#SyncRoot">
+            <summary>
+            Gets an object that you can use to synchronize access to the collection.
+            </summary>
+            <value>
+            An object that you can use to synchronize access to the collection.
+            </value>
+            <lastupdated>8/7/2006 11:35:17 AM</lastupdated>
+            <updatedby>Karthk</updatedby>
+            <approved>False</approved>
+        </member>
+        <member name="T:NationalInstruments.ModularInstruments.SystemServices.DeviceServices.ModularInstrumentsSystem">
+            <summary>
+            Provides information about Modular Instrument devices connected to the system.
+            </summary>
+            <threadsafety safety="unsafe"/>
+            <lastupdated>12/8/2006 2:35:38 PM</lastupdated>
+            <updatedby>NI</updatedby>
+            <approved>True</approved>
+        </member>
+        <member name="M:NationalInstruments.ModularInstruments.SystemServices.DeviceServices.ModularInstrumentsSystem.#ctor">
+            <summary>
+            Initializes an instance of 
+            <see cref="T:NationalInstruments.ModularInstruments.SystemServices.DeviceServices.ModularInstrumentsSystem"/>
+             class.
+            </summary>
+            <remarks>
+            The ModularInstrumentsSystem object obtained using the above constructor can be used to obtain 
+            information about all devices connected to the system.
+            </remarks>
+            <lastupdated>11/1/2006 1:25:41 PM</lastupdated>
+            <updatedby>NI</updatedby>
+            <approved>True</approved>
+        </member>
+        <member name="M:NationalInstruments.ModularInstruments.SystemServices.DeviceServices.ModularInstrumentsSystem.#ctor(System.String)">
+            <summary>
+            Initializes an instance of 
+            <see cref="T:NationalInstruments.ModularInstruments.SystemServices.DeviceServices.ModularInstrumentsSystem"/>
+             class.
+            </summary>
+            <param name="deviceDriverName">
+            Specifies the device driver name.
+            </param>
+            <remarks>
+            The ModularInstrumentsSystem object obtained using the above constructor can be used to 
+            obtain 
+            information about devices connected to the system that are supported by the device 
+            driver specified 
+            with the "deviceDriverName" parameter.
+            For example: <list type="bullet">
+            		<item>
+            			<description>
+            To specify NI-SCOPE modular instrument device - "NI-SCOPE" or "niScope"
+            </description>
+            		</item>
+            		<item>
+            			<description>
+            To specify NI-FGEN modular instrument device - "NI-FGEN" or "niFgen"
+            </description>
+            		</item>
+            		<item>
+            			<description>
+            To specify NI-HSDIO modular instrument device - "NI-HSDIO" or "niHSDIO"
+            </description>
+            		</item>
+            		<item>
+            			<description>
+            To specify NI-DMM modular instrument device - "NI-DMM" or "niDMM"
+            </description>
+            		</item>
+            		<item>
+            			<description>
+            To specify NI-SWITCH modular instrument device - "NI-SWITCH" or "niSwitch"
+            </description>
+            		</item>
+            		<item>
+            			<description>To specify all NI modular instrument devices of any driver type - " " or "niModularInstrument"
+            </description>
+            		</item>
+            	</list>
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            	<paramref name="deviceDriverName"/> is <see langword="null"/>.
+            </exception>
+            <lastupdated>12/8/2006 2:36:14 PM</lastupdated>
+            <updatedby>NI</updatedby>
+            <approved>True</approved>
+        </member>
+        <member name="M:NationalInstruments.ModularInstruments.SystemServices.DeviceServices.ModularInstrumentsSystem.#ctor(System.Type)">
+            <summary>
+            Initializes an instance of 
+            <see cref="T:NationalInstruments.ModularInstruments.SystemServices.DeviceServices.ModularInstrumentsSystem"/>
+             class.
+            </summary>
+            <param name="driverType">
+            Specifies the device driver Type.
+            </param>
+            <remarks>
+            The ModularInstrumentsSystem object obtained using the above constructor can be used to obtain 
+            information about devices connected to the system that  are supported by the device 
+            driver.
+            The device driver is specified by  the .NET type of that device driver.
+             For example, to specify the NI-SCOPE device driver, you must use 
+             the .NET type <format type="bold">ScopeSession</format>.
+            </remarks>
+            <exception cref="T:System.ArgumentException">
+            	<paramref name="driverType"/> is not supported.
+            </exception>
+            <lastupdated>12/8/2006 2:36:58 PM</lastupdated>
+            <updatedby>NI</updatedby>
+            <approved>True</approved>
+        </member>
+        <member name="M:NationalInstruments.ModularInstruments.SystemServices.DeviceServices.ModularInstrumentsSystem.Dispose">
+            <summary>
+            Releases all the resources that are held by 
+            <see cref="T:NationalInstruments.ModularInstruments.SystemServices.DeviceServices.ModularInstrumentsSystem"/>.
+            </summary>
+            <lastupdated>11/1/2006 1:20:16 PM</lastupdated>
+            <updatedby>NI</updatedby>
+            <approved>True</approved>
+        </member>
+        <member name="M:NationalInstruments.ModularInstruments.SystemServices.DeviceServices.ModularInstrumentsSystem.Finalize">
+            <exclude/>
+            <lastupdated>11/17/2006 5:15:32 PM</lastupdated>
+            <updatedby>Karthk</updatedby>
+            <approved>False</approved>
+        </member>
+        <member name="M:NationalInstruments.ModularInstruments.SystemServices.DeviceServices.ModularInstrumentsSystem.Dispose(System.Boolean)">
+            <exclude/>
+            <lastupdated>12/11/2006 4:00:39 PM</lastupdated>
+            <updatedby>NI</updatedby>
+            <approved>True</approved>
+        </member>
+        <member name="P:NationalInstruments.ModularInstruments.SystemServices.DeviceServices.ModularInstrumentsSystem.DeviceCollection">
+            <summary>
+            Gets the collection of DeviceInfo objects.
+            </summary>
+            <value>
+            The collection of DeviceInfo objects.
+            </value>
+            <exception cref="T:System.ObjectDisposedException">
+            The object has been disposed.
+            </exception>
+            <lastupdated>11/1/2006 1:25:28 PM</lastupdated>
+            <updatedby>NI</updatedby>
+            <approved>True</approved>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,12 @@
+{
+	"StatusOfAIThing":"/FullDataFilePaths",
+	"ShotNoSource":"/dicServer/Element/ShotNo",
+	"EventPaths":[
+		"/aimanagement"
+	],
+	"EventKinds":[
+		"AllAITaskFinished"
+	],
+	"UploadBehavior": "RenameOriginal"
+}
+	

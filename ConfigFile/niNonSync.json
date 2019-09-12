@@ -1,0 +1,30 @@
+{
+  "CardType": "NI-6 series",
+  "TriggerConfig": {
+    "TriggerType": 0,
+    "TriggerSource": "",
+    "TriggerEdge": 0,
+    "Delay": 0.0,
+    "MasterOrSlave": 0
+  },
+  "ClockConfig": {
+    "ClkSource": "",
+    "SampleQuantityMode": 0,
+    "SampleRate": 2000.0,
+    "ClkActiveEdge": 0,
+    "TotalSampleLengthPerChannel": 10000,
+    "ReadSamplePerTime": 1000
+  },
+  "ChannelConfig": {
+    "ChannelName": "Dev1/ai0:3",
+    "TerminalConfigType": 0,
+    "MinimumValue": 0.0,
+    "MaximumValue": 10.0
+  },
+  "StartTime": 0.5,
+  "AutoWriteDataToFile": true,
+  "ChannelCount": 4,
+  "RemainShotsMax": 30,
+  "RemainShotsMin": 20,
+  "IsOn": true
+}

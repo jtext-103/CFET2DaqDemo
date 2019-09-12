@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<DotNETComponent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Visible>false</Visible>
+  <SupportedProjectTypes>
+    <string>CppCLI2010</string>
+    <string>WindowsFormsApplication2010</string>
+  </SupportedProjectTypes>
+  <SelectedByDefault>true</SelectedByDefault>
+  <Title>Measurement Studio Hardware Class Libraries/ModularInstrumentsSystem Library</Title>
+  <Description>Contains classes to query information about National Instruments ModularInstrument devices present in the system using NI-ModInst.</Description>
+  <Name2010>NationalInstruments.ModularInstruments.ModularInstrumentsSystem</Name2010>
+  <Licensed>false</Licensed>
+  <Dependencies>
+    <DotNETAssembly>
+      <Name>NationalInstruments.ModularInstruments.Common</Name>
+    </DotNETAssembly>
+  </Dependencies>
+  <Namespaces>
+    <string>NationalInstruments.ModularInstruments.SystemServices.DeviceServices</string>
+  </Namespaces>
+</DotNETComponent>
+

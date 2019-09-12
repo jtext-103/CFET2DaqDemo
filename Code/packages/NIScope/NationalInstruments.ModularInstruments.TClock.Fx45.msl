@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<DotNETComponent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Visible>true</Visible>
+  <SupportedProjectTypes>
+    <string>CppCLI2012</string>
+    <string>WindowsFormsApplication2012</string>
+  </SupportedProjectTypes>
+  <SelectedByDefault>false</SelectedByDefault>
+  <Title>Measurement Studio Hardware Class Libraries/TClk Library</Title>
+  <Description>Contains classes to synchronize modular instruments using NI-TClk. This library supersedes the old TClock .NET library.</Description>
+  <Name2012>NationalInstruments.ModularInstruments.TClock.Fx45</Name2012>
+  <Licensed>false</Licensed>
+  <Dependencies>
+    <DotNETAssembly>
+      <Name>NationalInstruments.ModularInstruments.Common</Name>
+    </DotNETAssembly>
+  </Dependencies>
+  <Namespaces>
+    <string>NationalInstruments.ModularInstruments.SystemServices.TimingServices</string>
+  </Namespaces>
+</DotNETComponent>
+
