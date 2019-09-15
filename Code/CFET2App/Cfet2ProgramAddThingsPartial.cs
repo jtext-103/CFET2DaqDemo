@@ -1,24 +1,28 @@
 ﻿using Jtext103.CFET2.CFET2App.ExampleThings;
 using Jtext103.CFET2.Core;
+using Jtext103.CFET2.NancyHttpCommunicationModule;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Jtext103.CFET2.Things.DAQAIThing;
-using Jtext103.CFET2.Things.NiAiLib;
-using Jtext103.CFET2.Things.DAQDataUploadThing;
-using JTextDAQDataFileOperator.HDF5;
-using Jtext103.CFET2.NancyHttpCommunicationModule;
-using Jtext103.CFET2.Things.DicServer;
-using DataServer;
+using Jtext103.CFET2.Core.BasicThings;
 
 namespace Jtext103.CFET2.CFET2App
 {
-    partial  class Cfet2Program : CFET2Host
+    public partial class Cfet2Program : CFET2Host
     {
         private void AddThings()
         {
+            //If you don't want dynamic load things, please comment out the line below
+            //var loader = new DynamicThingsLoader(this);
+
+            //you can add Thing by coding here
+
+            //------------------------------Custom View------------------------------//
+            var customView = new CustomViewThing();
+            MyHub.TryAddThing(customView, "/", "customView", "./CustomView");
+
             //------------------------------Nancy HTTP通信模块------------------------------//
             var nancyCM = new NancyCommunicationModule(new Uri("http://localhost:8001"));
             MyHub.TryAddCommunicationModule(nancyCM);

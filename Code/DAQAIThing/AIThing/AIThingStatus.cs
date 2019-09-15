@@ -135,6 +135,16 @@ namespace Jtext103.CFET2.Things.DAQAIThing
             }
         }
 
+        [Cfet2Status]
+        public double LatestChannelData(int index)
+        {
+            if(index >= 0 && index < latestData.Length)
+            {
+                return latestData[index];
+            }
+            throw new Exception("Index out of range!");
+        }
+
         /// <summary>
         /// （已经放电完成的）最新炮的炮号
         /// </summary>
