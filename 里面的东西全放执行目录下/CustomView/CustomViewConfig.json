@@ -1,0 +1,7 @@
+{
+	"RegularMatches":
+	{
+		"card(.*?)":"card.json",
+		"fakeAI":"fakeAI.json"
+	}
+}
