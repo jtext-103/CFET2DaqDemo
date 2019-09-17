@@ -85,8 +85,8 @@
     <Reference Include="Nancy.ViewEngines.Razor, Version=1.4.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Nancy.Viewengines.Razor.1.4.3\lib\net40\Nancy.ViewEngines.Razor.dll</HintPath>
     </Reference>
-    <Reference Include="NancyModule, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\NancyModule.3.0.1\lib\net461\NancyModule.dll</HintPath>
+    <Reference Include="NancyModule, Version=3.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NancyModule.3.0.2\lib\net461\NancyModule.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -161,11 +161,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\400.html" />
-    <Content Include="Views\404.html" />
-    <Content Include="Views\index.html" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\BasicAIModel\BasicAIModel.csproj">
       <Project>{37072345-0577-4e3f-ba8e-8fd50bf92a7a}</Project>
       <Name>BasicAIModel</Name>
@@ -186,6 +181,11 @@
       <Project>{9b688d20-3308-44bd-9f14-770d7abf624b}</Project>
       <Name>NIDAQAI</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\400.html" />
+    <Content Include="Views\404.html" />
+    <Content Include="Views\index.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Nancy.Viewengines.Razor.1.4.3\build\Nancy.ViewEngines.Razor.targets" Condition="Exists('..\packages\Nancy.Viewengines.Razor.1.4.3\build\Nancy.ViewEngines.Razor.targets')" />
