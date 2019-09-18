@@ -757,6 +757,29 @@
             the parameters 
             </summary>
         </member>
+        <member name="T:Jtext103.CFET2.Core.Middleware.Basic.NavigationMidware">
+            <summary>
+            this midware put parent and children path in the sample 
+            </summary>
+        </member>
+        <member name="F:Jtext103.CFET2.Core.Middleware.Basic.NavigationMidware.ParentPath">
+            <summary>
+            the key in context for the parent path
+            </summary>
+        </member>
+        <member name="F:Jtext103.CFET2.Core.Middleware.Basic.NavigationMidware.ChildrenPath">
+            <summary>
+            the key in context for the children pathes
+            </summary>
+        </member>
+        <member name="M:Jtext103.CFET2.Core.Middleware.Basic.NavigationMidware.Process(Jtext103.CFET2.Core.Sample.ISample,Jtext103.CFET2.Core.ResourceRequest)">
+            <summary>
+            put parent and children path in the sample 
+            </summary>
+            <param name="input">the input sample</param>
+            <param name="request">note: todo there is a flag indecating weather this plugin is activate</param>
+            <returns></returns>
+        </member>
         <member name="T:Jtext103.CFET2.Core.Middleware.Basic.ResourceInfoMidware">
             <summary>
             this plugin adds resource info like input and return type into the sample, see TestAddParametersListThing for use case
