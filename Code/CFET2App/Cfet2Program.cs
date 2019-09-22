@@ -44,6 +44,7 @@ namespace Jtext103.CFET2.CFET2App
 
             //start all thins
             host.MyHub.StartThings();
+            host.MyHub.StartPipeline();
 
 
             //start cli loop 

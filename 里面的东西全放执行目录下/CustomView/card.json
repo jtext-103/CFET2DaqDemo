@@ -1,3 +1,1 @@
-{
-	"Card":"Card is HAHA"
-}
+{"widgetList":[{"widgetComponentName":"Status","ref":"0","x":0,"y":0,"w":4,"h":4,"i":0,"moved":false,"widgetConfig":{"WidgetComponentName":"Status","data":{"url":"$a$","userInputData":{"a":"1"}}}},{"widgetComponentName":"Method","ref":"1","x":0,"y":4,"w":4,"h":4,"i":1,"moved":false,"widgetConfig":{"WidgetComponentName":"Method","data":{"url":"$b$","userInputData":{"b":"2"}}}},{"widgetComponentName":"Status","ref":"2","x":0,"y":8,"w":4,"h":4,"i":2,"moved":false,"widgetConfig":{"WidgetComponentName":"Status","data":{"url":"$c$","userInputData":{"c":"3"}}}}],"currentRef":"3"}
