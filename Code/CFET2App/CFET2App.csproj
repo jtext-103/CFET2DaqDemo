@@ -86,8 +86,7 @@
       <HintPath>..\packages\Nancy.Viewengines.Razor.1.4.3\lib\net40\Nancy.ViewEngines.Razor.dll</HintPath>
     </Reference>
     <Reference Include="NancyModule, Version=3.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\NancyModule\NancyModule.dll</HintPath>
+      <HintPath>..\packages\NancyModule.3.0.2\lib\net461\NancyModule.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -177,6 +176,10 @@
     <ProjectReference Include="..\DataServer\DataServerThing.csproj">
       <Project>{4b40cae3-ee69-439a-8f0d-8744a9bac101}</Project>
       <Name>DataServerThing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MdsServerThing\MdsServerThing.csproj">
+      <Project>{97ad3f11-3b96-46bf-ac68-0b51e59b3cf4}</Project>
+      <Name>MdsServerThing</Name>
     </ProjectReference>
     <ProjectReference Include="..\NIDAQAI\NIDAQAI.csproj">
       <Project>{9b688d20-3308-44bd-9f14-770d7abf624b}</Project>

@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataServerThing", "DataServ
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShotDirOperate", "ShotDirOperate\ShotDirOperate.csproj", "{6ACA9FC9-6E91-4B79-AD4D-2011A30C2CF9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MdsServerThing", "MdsServerThing\MdsServerThing.csproj", "{97AD3F11-3B96-46BF-AC68-0B51E59B3CF4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{6ACA9FC9-6E91-4B79-AD4D-2011A30C2CF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6ACA9FC9-6E91-4B79-AD4D-2011A30C2CF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6ACA9FC9-6E91-4B79-AD4D-2011A30C2CF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97AD3F11-3B96-46BF-AC68-0B51E59B3CF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97AD3F11-3B96-46BF-AC68-0B51E59B3CF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97AD3F11-3B96-46BF-AC68-0B51E59B3CF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97AD3F11-3B96-46BF-AC68-0B51E59B3CF4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

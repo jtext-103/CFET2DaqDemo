@@ -14,6 +14,7 @@ using Jtext103.CFET2.Things.DicServer;
 using DataServer;
 using Jtext103.CFET2.Core.BasicThings;
 using Jtext103.CFET2.Core.Middleware.Basic;
+using MdsServerThing;
 
 namespace Jtext103.CFET2.CFET2App
 {
@@ -67,11 +68,14 @@ namespace Jtext103.CFET2.CFET2App
             //var dic = new DicServerThing();
             //MyHub.TryAddThing(dic, "/", "dicServer", @".\ConfigFile\Dic.json");
 
-            //------------------------------数据服务------------------------------//
+            //------------------------------文件数据服务------------------------------//
             var dataServer = new DataServerThing(@".\ConfigFile\BasePath.json");
             dataServer.dataFileFactoty = new HDF5DataFileFactory();
             MyHub.TryAddThing(dataServer, "/", "dataServer");
 
+            //------------------------------Mds数据服务------------------------------//
+            var mdsServer = new MdsPlusReaderThing();
+            MyHub.TryAddThing(mdsServer, "/", "mdsServer", @".\ConfigFile\mdsServer.json");
         }
     }
 }

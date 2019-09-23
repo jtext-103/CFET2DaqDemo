@@ -21,7 +21,7 @@
     "MinimumValue": 0.0,
     "MaximumValue": 10.0
   },
-  "StartTime": 0.5,
+  "StartTime": 0.0,
   "AutoWriteDataToFile": true,
   "ChannelCount": 4,
   "RemainShotsMax": 30,
