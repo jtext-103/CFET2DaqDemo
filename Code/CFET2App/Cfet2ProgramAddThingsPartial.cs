@@ -39,10 +39,6 @@ namespace Jtext103.CFET2.CFET2App
             var customView = new CustomViewThing();
             MyHub.TryAddThing(customView, "/", "customView", "./CustomView");
 
-
-
-
-
             //------------------------------模拟采集卡------------------------------//
             var fakeAI = new FakeAIThing();
             MyHub.TryAddThing(fakeAI, "/", "fakeCard", 16);
@@ -56,20 +52,20 @@ namespace Jtext103.CFET2.CFET2App
                 new { ConfigFilePath = @".\ConfigFile\niNonSync.json", DataFileParentDirectory = @"D:\Data\ni\Card0" });
 
 
-            //------------------------------自动 Arm 采集卡与发布上传事件------------------------------//
-            var aiManagement = new AIManagementThing();
-            MyHub.TryAddThing(aiManagement, @"/", "aimanagement", @".\ConfigFile\AIManagement.json");
+            ////------------------------------自动 Arm 采集卡与发布上传事件------------------------------//
+            //var aiManagement = new AIManagementThing();
+            //MyHub.TryAddThing(aiManagement, @"/", "aimanagement", @".\ConfigFile\AIManagement.json");
 
-            //------------------------------上传文件的------------------------------//
-            var uploader = new DataUpLoadThing();
-            MyHub.TryAddThing(uploader, @"/", "uploader", new string[] {
-                                @".\ConfigFile\DataUploadConfig.json",
-                                @".\ConfigFile\DataUpload.csv"
-                        });
+            ////------------------------------上传文件的------------------------------//
+            //var uploader = new DataUpLoadThing();
+            //MyHub.TryAddThing(uploader, @"/", "uploader", new string[] {
+            //                    @".\ConfigFile\DataUploadConfig.json",
+            //                    @".\ConfigFile\DataUpload.csv"
+            //            });
 
-            //------------------------------上传炮号提供者------------------------------//
-            var dic = new DicServerThing();
-            MyHub.TryAddThing(dic, "/", "dicServer", @".\ConfigFile\Dic.json");
+            ////------------------------------上传炮号提供者------------------------------//
+            //var dic = new DicServerThing();
+            //MyHub.TryAddThing(dic, "/", "dicServer", @".\ConfigFile\Dic.json");
 
             //------------------------------数据服务------------------------------//
             var dataServer = new DataServerThing(@".\ConfigFile\BasePath.json");
