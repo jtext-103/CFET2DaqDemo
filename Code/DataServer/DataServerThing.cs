@@ -110,8 +110,13 @@ namespace DataServer
         /// <param name="stride">步长</param>
         /// <returns></returns>
         [Cfet2Status]
-        public double[] DataByTime(string dataFilePath, double startTime, double endTime, ulong stride)
+        public double[] DataByTime(string dataFilePath, double startTime = 0, double endTime = 0, ulong stride = 1)
         {
+            if(startTime == 0 && endTime == 0)
+            {
+                startTime = StartTime(dataFilePath);
+                endTime = startTime + Length(dataFilePath) / SampleRate(dataFilePath);
+            }
             int nChannel;
             return GetDataReader(dataFilePath, out nChannel).LoadDataFromFileByTime(nChannel, startTime, endTime, stride);
         }
@@ -121,8 +126,13 @@ namespace DataServer
         /// </summary>
         /// <returns></returns>
         [Cfet2Status]
-        public double[] DataByTimeTimeAxis(string dataFilePath, double startTime, double endTime, ulong stride)
+        public double[] DataByTimeTimeAxis(string dataFilePath, double startTime = 0, double endTime = 0, ulong stride = 1)
         {
+            if (startTime == 0 && endTime == 0)
+            {
+                startTime = StartTime(dataFilePath);
+                endTime = startTime + Length(dataFilePath) / SampleRate(dataFilePath);
+            }
             int nChannel;
             return GetDataReader(dataFilePath, out nChannel).LoadDataFromFileByTime_TimeAxis(nChannel, startTime, endTime, stride);
         }

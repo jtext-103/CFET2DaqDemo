@@ -39,6 +39,17 @@
             this indecates that it is a status for a thing
             </summary>
         </member>
+        <member name="T:Jtext103.CFET2.Core.BasicThings.RootThing">
+            <summary>
+            this thing does absulte nothing.  
+            it is for navigational usage
+            </summary>
+        </member>
+        <member name="P:Jtext103.CFET2.Core.BasicThings.RootThing.HostName">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:Jtext103.CFET2.Core.CFET2Host">
             <summary>
             all host applications have to derive from this to accecpt an hub-proxy-
@@ -61,6 +72,16 @@
             when a event is published this will be created to contain everything the event is about
             </summary>
         </member>
+        <member name="P:Jtext103.CFET2.Core.Event.EventArg.PerformanceLevel">
+            <summary>
+            the fill over head of event arg, so performanceLevel is 0
+            </summary>
+        </member>
+        <member name="P:Jtext103.CFET2.Core.Event.EventArg.Host">
+            <summary>
+            only applicable to remote event pushing, the host including protocol
+            </summary>
+        </member>
         <member name="P:Jtext103.CFET2.Core.Event.EventArg.Source">
             <summary>
             a string that indicate the resources generated this event
@@ -81,22 +102,41 @@
             
             </summary>
             <param name="source"></param>
+            <param name="type">if type is "" then match any type</param>
+            <param name="sample"></param>
+        </member>
+        <member name="M:Jtext103.CFET2.Core.Event.EventArg.#ctor(System.String,System.String,Jtext103.CFET2.Core.Sample.ISample,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="source"></param>
             <param name="type"></param>
             <param name="sample"></param>
+            <param name="host"></param>
         </member>
         <member name="T:Jtext103.CFET2.Core.Event.EventFilter">
             <summary>
             a event filter to select the event you have subscribed
             </summary>
         </member>
-        <member name="P:Jtext103.CFET2.Core.Event.EventFilter.Source">
+        <member name="P:Jtext103.CFET2.Core.Event.EventFilter.SourcesAndTypes">
             <summary>
-            a regex expression that indicate the resources you interested in
+            a collection of  SourceAndTypeFilter, any mathch will fire the handler, donot add to list!! it will not work use AddSourceAndTpye method!!
             </summary>
         </member>
-        <member name="P:Jtext103.CFET2.Core.Event.EventFilter.EventType">
+        <member name="P:Jtext103.CFET2.Core.Event.EventFilter.Host">
             <summary>
-            a regex expression to specify the event tyep you interested in
+            the remote host of the event publisher
+            </summary>
+        </member>
+        <member name="P:Jtext103.CFET2.Core.Event.EventFilter.PerformanceLevel">
+            <summary>
+            only applicable for remote event, 0 for lowest full sample,, 1 for minimum overhead
+            </summary>
+        </member>
+        <member name="M:Jtext103.CFET2.Core.Event.EventFilter.#ctor">
+            <summary>
+            create an empty filter
             </summary>
         </member>
         <member name="M:Jtext103.CFET2.Core.Event.EventFilter.#ctor(System.String,System.String)">
@@ -105,6 +145,27 @@
             </summary>
             <param name="resource">IgnoreCase</param>
             <param name="eventType">IgnoreCase</param>
+        </member>
+        <member name="M:Jtext103.CFET2.Core.Event.EventFilter.#ctor(Jtext103.CFET2.Core.Event.EventFilter)">
+            <summary>
+            create a event filter with the input
+            </summary>
+        </member>
+        <member name="M:Jtext103.CFET2.Core.Event.EventFilter.#ctor(System.String,System.String,System.Int32,System.String)">
+            <summary>
+            create a event filter with the input
+            </summary>
+            <param name="resource">IgnoreCase</param>
+            <param name="eventType">IgnoreCase</param>
+            <param name="performanceLevel"></param>
+            <param name="host">the remote host incluting protocol</param>
+        </member>
+        <member name="M:Jtext103.CFET2.Core.Event.EventFilter.AddSourceAndType(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="resource"></param>
+            <param name="eventType"></param>
         </member>
         <member name="M:Jtext103.CFET2.Core.Event.EventFilter.Predicate(Jtext103.CFET2.Core.Event.EventArg)">
             <summary>
@@ -121,6 +182,11 @@
         <member name="M:Jtext103.CFET2.Core.Event.EventHub.#ctor">
             <summary>
             create the event
+            </summary>
+        </member>
+        <member name="P:Jtext103.CFET2.Core.Event.EventHub.RemoteEventHubs">
+            <summary>
+            the remote event thing that the event hub uses
             </summary>
         </member>
         <member name="M:Jtext103.CFET2.Core.Event.EventHub.Init">
@@ -146,6 +212,12 @@
             <param name="eventType"></param>
             <param name="payload">the event value, will be wrapped in status sample if it not a sample</param>
         </member>
+        <member name="M:Jtext103.CFET2.Core.Event.EventHub.Publish(Jtext103.CFET2.Core.Event.EventArg)">
+            <summary>
+            publis a event, not that the payload you are supplying will be wrapped in a status sample if it is not a sample already.
+            </summary>
+            <param name="eventArg"></param>
+        </member>
         <member name="M:Jtext103.CFET2.Core.Event.EventHub.newPendingEvent">
             <summary>
             release the blocked event handling loop
@@ -170,6 +242,45 @@
             kill the handling loop 
             </summary>
         </member>
+        <member name="T:Jtext103.CFET2.Core.Event.IRemoteEventHub">
+            <summary>
+            an remote event thing interface, this interface allow the local event hub to forward event to remote event thing and subscribe to remote event
+            </summary>
+        </member>
+        <member name="P:Jtext103.CFET2.Core.Event.IRemoteEventHub.Protocol">
+            <summary>
+            the protocol this thing support
+            </summary>
+        </member>
+        <member name="M:Jtext103.CFET2.Core.Event.IRemoteEventHub.Subscribe(Jtext103.CFET2.Core.Event.Token,Jtext103.CFET2.Core.Event.EventFilter,System.Action{Jtext103.CFET2.Core.Event.EventArg})">
+            <summary>
+            let the remote event thing handle the subscription to remote event
+            </summary>
+            <param name="token"></param>
+            <param name=""></param>
+            <param name="handler"></param>
+        </member>
+        <member name="M:Jtext103.CFET2.Core.Event.IRemoteEventHub.Unsbscribe(Jtext103.CFET2.Core.Event.Token)">
+            <summary>
+            unsubscribe the remote evnet
+            </summary>
+            <param name="token"></param>
+        </member>
+        <member name="T:Jtext103.CFET2.Core.Event.SourceAndTypeFilter">
+            <summary>
+            store the source and type string for a event filter, regex expression that indicate the resources you interested in
+            </summary>
+        </member>
+        <member name="P:Jtext103.CFET2.Core.Event.SourceAndTypeFilter.Source">
+            <summary>
+            filter the source of the event
+            </summary>
+        </member>
+        <member name="P:Jtext103.CFET2.Core.Event.SourceAndTypeFilter.EventType">
+            <summary>
+            filter the type of the event, a regex expression to specify the event tyep you interested in
+            </summary>
+        </member>
         <member name="T:Jtext103.CFET2.Core.Event.Token">
             <summary>
             
@@ -190,6 +301,16 @@
             
             </summary>
             <param name="eventHub"></param>
+        </member>
+        <member name="P:Jtext103.CFET2.Core.Event.Token.IsRemote">
+            <summary>
+            is this token point to a remote subscription
+            </summary>
+        </member>
+        <member name="P:Jtext103.CFET2.Core.Event.Token.Protocol">
+            <summary>
+            the remote subscription protocol
+            </summary>
         </member>
         <member name="T:Jtext103.CFET2.Core.Event.Subscriber">
             <summary>
@@ -306,7 +427,7 @@
         </member>
         <member name="P:Jtext103.CFET2.Core.Hub.Pipeline">
             <summary>
-            access the mast pipeline
+            access the master's pipeline
             </summary>
         </member>
         <member name="P:Jtext103.CFET2.Core.Hub.MyCfet2Module">
@@ -493,6 +614,11 @@
             <param name="mountPath">the path you want your thing be mounted, the path will be /[mountpath]/[name]</param>
             <param name="initObject"></param>
         </member>
+        <member name="M:Jtext103.CFET2.Core.Hub.StartPipeline">
+            <summary>
+            start the pipe line, after start you can not stop or modifiy the pipeline
+            </summary>
+        </member>
         <member name="M:Jtext103.CFET2.Core.Hub.StartThings">
             <summary>
             this should only be called by host, it will call the start method on the things
@@ -513,25 +639,25 @@
             </summary>
             <param name="configRoot">the root diretory that contains all thing configs</param>
         </member>
-        <member name="M:Jtext103.CFET2.Core.Hub.FindLocalResourceWithUri(System.String)">
+        <member name="M:Jtext103.CFET2.Core.Hub.FindLocalResourceWithPath(System.String)">
             <summary>
             find the resource object of a given uri, all the parameters are ignored
             </summary>
-            <param name="uri">uri, can have route parameters or querries but will be ignored</param>
+            <param name="path">uri, can have route parameters or querries but will be ignored, only local uri is accepted</param>
             <returns>the resource object</returns>
         </member>
-        <member name="M:Jtext103.CFET2.Core.Hub.FindLocalParentWithUri(System.String)">
+        <member name="M:Jtext103.CFET2.Core.Hub.FindLocalParentWithPath(System.String)">
             <summary>
             find the parent of resource object of a given uri, all the parameters are ignored
             </summary>
-            <param name="uri"></param>
+            <param name="path">uri, can have route parameters or querries but will be ignored, only local uri is accepted</param>
             <returns></returns>
         </member>
         <member name="M:Jtext103.CFET2.Core.Hub.FindLocalChildWithUri(System.String)">
             <summary>
             find the children of resource object of a given uri, all the parameters are ignored
             </summary>
-            <param name="uri"></param>
+            <param name="path"></param>
             <returns>the children resource objects</returns>
         </member>
         <member name="T:Jtext103.CFET2.Core.HubMaster">
@@ -632,6 +758,67 @@
             </summary>
             <param name="name"></param>
         </member>
+        <member name="T:Jtext103.CFET2.Core.Middleware.Basic.ActionInfo">
+            <summary>
+            a simple readable version of member info
+            </summary>
+        </member>
+        <member name="P:Jtext103.CFET2.Core.Middleware.Basic.ActionInfo.Parameters">
+            <summary>
+            the parameters 
+            </summary>
+        </member>
+        <member name="T:Jtext103.CFET2.Core.Middleware.Basic.NavigationMidware">
+            <summary>
+            this midware put parent and children path in the sample 
+            </summary>
+        </member>
+        <member name="F:Jtext103.CFET2.Core.Middleware.Basic.NavigationMidware.ParentPath">
+            <summary>
+            the key in context for the parent path
+            </summary>
+        </member>
+        <member name="F:Jtext103.CFET2.Core.Middleware.Basic.NavigationMidware.ChildrenPath">
+            <summary>
+            the key in context for the children pathes
+            </summary>
+        </member>
+        <member name="M:Jtext103.CFET2.Core.Middleware.Basic.NavigationMidware.Process(Jtext103.CFET2.Core.Sample.ISample,Jtext103.CFET2.Core.ResourceRequest)">
+            <summary>
+            put parent and children path in the sample 
+            </summary>
+            <param name="input">the input sample</param>
+            <param name="request">note: todo there is a flag indecating weather this plugin is activate</param>
+            <returns></returns>
+        </member>
+        <member name="T:Jtext103.CFET2.Core.Middleware.Basic.ResourceInfoMidware">
+            <summary>
+            this plugin adds resource info like input and return type into the sample, see TestAddParametersListThing for use case
+            </summary>
+        </member>
+        <member name="F:Jtext103.CFET2.Core.Middleware.Basic.ResourceInfoMidware.OutputType">
+            <summary>
+            the string key in context indicating the outpyt type
+            </summary>
+        </member>
+        <member name="F:Jtext103.CFET2.Core.Middleware.Basic.ResourceInfoMidware.ResourceType">
+            <summary>
+            the string key in context indicating the resource type
+            </summary>
+        </member>
+        <member name="F:Jtext103.CFET2.Core.Middleware.Basic.ResourceInfoMidware.Actions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Jtext103.CFET2.Core.Middleware.Basic.ResourceInfoMidware.Process(Jtext103.CFET2.Core.Sample.ISample,Jtext103.CFET2.Core.ResourceRequest)">
+            <summary>
+            get the resour info from the resource put in to the context
+            </summary>
+            <param name="input">the input sample</param>
+            <param name="request">note: todo there is a flag indecating weather this plugin is activate</param>
+            <returns></returns>
+        </member>
         <member name="T:Jtext103.CFET2.Core.Middleware.CfetMiddlewareBase">
             <summary>
             the  base to all cfet2 middle ware whic is used to process the samples
@@ -663,7 +850,7 @@
             a container for cfet2 middleware, it runs 
             </summary>
         </member>
-        <member name="M:Jtext103.CFET2.Core.Middleware.Pipeline.#ctor(Jtext103.CFET2.Core.Hub)">
+        <member name="M:Jtext103.CFET2.Core.Middleware.Pipeline.#ctor">
             <summary>
             holds midware and process the sample with them
             </summary>
@@ -777,6 +964,11 @@
             is this the orignal copy
             </summary>
         </member>
+        <member name="P:Jtext103.CFET2.Core.Resource.ResourceBase.Info">
+            <summary>
+            get the describtion of this 
+            </summary>
+        </member>
         <member name="M:Jtext103.CFET2.Core.Resource.ResourceBase.Get(System.Collections.Generic.Dictionary{System.String,System.Object})">
             <summary>
             get the value of the resource, you provide a dictionary as an input,
@@ -824,7 +1016,7 @@
         <member name="M:Jtext103.CFET2.Core.Resource.ResourceConfig.Set(System.Object[])">
             <summary>
             Set is tricky. Note, Important, You must always pass a value not a sample to set a config. 
-            But the thing may implements ths config as property of type sample (which is not recommanded unless necessary), to the Set here will automaticlly wrap the value into sample. 
+            But the thing may implements the config as property of type sample (which is not recommanded unless necessary), to the Set here will automaticlly wrap the value into sample. 
             And if it is a Method Set, the arguments must have only no sample type, not poiunt to accept sample, since the sample is for get only
             </summary>
             <param name="inputs">the input to set the config, if it is a property set of method with only one parameter as the value to be set (config value), then there are only one para nneded, 
@@ -848,6 +1040,16 @@
             try to assign coorisponding implemeation to right property
             </summary>
             <param name="member"></param>
+        </member>
+        <member name="T:Jtext103.CFET2.Core.Resource.ResourceInfo">
+            <summary>
+            describe the resource
+            </summary>
+        </member>
+        <member name="F:Jtext103.CFET2.Core.Resource.ResourceInfo.Implementations">
+            <summary>
+            the implementions of this resource
+            </summary>
         </member>
         <member name="M:Jtext103.CFET2.Core.Resource.ResourceMethod.Invoke(System.Collections.Generic.Dictionary{System.String,System.Object})">
             <summary>
@@ -926,6 +1128,7 @@
             helper invoke an method in a resource.
             </summary>
             <param name="inputs"></param>
+            <param name="method"></param>
             <returns></returns>
         </member>
         <member name="M:Jtext103.CFET2.Core.Resource.ResourceStatus.GetMandatoryParameterCount(System.Reflection.ParameterInfo[])">

@@ -128,8 +128,8 @@ namespace Jtext103.CFET2.Things.DAQAIThing
         /// </summary>
         /// <param name="shotNo"></param>
         /// <returns></returns>
-        [Cfet2Config(ConfigActions = ConfigAction.Get, Name = "SampleModel")]
-        public AISamplesMode SampleModelGet(int shotNo = -1)
+        [Cfet2Config(ConfigActions = ConfigAction.Get, Name = "SampleMode")]
+        public AISamplesMode SampleModeGet(int shotNo = -1)
         {
             //-1代表当前配置文件中的status配置
             if (shotNo == -1)
@@ -144,8 +144,8 @@ namespace Jtext103.CFET2.Things.DAQAIThing
         /// 设置采样模式
         /// </summary>
         /// <param name="sampleRate"></param>
-        [Cfet2Config(ConfigActions = ConfigAction.Set, Name = "SampleModel")]
-        public void SampleModelSet(int sampleMode)
+        [Cfet2Config(ConfigActions = ConfigAction.Set, Name = "SampleMode")]
+        public void SampleModeSet(int sampleMode)
         {
             if ((AISamplesMode)sampleMode == AISamplesMode.ContinuousSamples)
             {
