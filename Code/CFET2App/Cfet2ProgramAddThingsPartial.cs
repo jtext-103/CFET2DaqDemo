@@ -15,6 +15,7 @@ using DataServer;
 using Jtext103.CFET2.Core.BasicThings;
 using Jtext103.CFET2.Core.Middleware.Basic;
 using MdsServerThing;
+using Jtext103.CFET2.Things.EPCISClient;
 
 namespace Jtext103.CFET2.CFET2App
 {
@@ -29,7 +30,6 @@ namespace Jtext103.CFET2.CFET2App
             MyHub.Pipeline.AddMiddleware(new ResourceInfoMidware());
             MyHub.Pipeline.AddMiddleware(new NavigationMidware());
 
-
             //------------------------------Nancy HTTP通信模块------------------------------//
             var nancyCM = new NancyCommunicationModule(new Uri("http://localhost:8001"));
             MyHub.TryAddCommunicationModule(nancyCM);
@@ -39,6 +39,10 @@ namespace Jtext103.CFET2.CFET2App
             //------------------------------Custom View------------------------------//
             var customView = new CustomViewThing();
             MyHub.TryAddThing(customView, "/", "customView", "./CustomView");
+
+            //------------------------------EPCIS------------------------------//
+            EPCISThing epcis = new EPCISThing();
+            MyHub.TryAddThing(epcis, "/", "epcis", @".\ConfigFile\PVs.json");
 
             //------------------------------模拟采集卡------------------------------//
             var fakeAI = new FakeAIThing();

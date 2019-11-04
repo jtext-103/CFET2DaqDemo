@@ -169,6 +169,10 @@
       <Project>{4b40cae3-ee69-439a-8f0d-8744a9bac101}</Project>
       <Name>DataServerThing</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EPCISClient\EPCISClient.csproj">
+      <Project>{f9cb28c4-4fd7-4532-86e4-916b13a9bb68}</Project>
+      <Name>EPCISClient</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MdsServerThing\MdsServerThing.csproj">
       <Project>{97ad3f11-3b96-46bf-ac68-0b51e59b3cf4}</Project>
       <Name>MdsServerThing</Name>
