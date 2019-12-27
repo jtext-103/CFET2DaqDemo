@@ -148,6 +148,15 @@ namespace DataServer
         [Cfet2Status]
         public double[] DataByTimeFuzzy(string dataFilePath, double startTime, double endTime, ulong count)
         {
+            if(startTime == 0 && endTime == 0)
+            {
+                startTime = StartTime(dataFilePath);
+                endTime = startTime + Length(dataFilePath)/ SampleRate(dataFilePath);
+            }
+            if(count == 0)
+            {
+                count = (ulong)Length(dataFilePath);
+            }
             int nChannel;
             return GetDataReader(dataFilePath, out nChannel).LoadDataFromFileByTimeFuzzy(nChannel, startTime, endTime, count);
         }
@@ -159,6 +168,15 @@ namespace DataServer
         [Cfet2Status]
         public double[] DataByTimeFuzzyTimeAxis(string dataFilePath, double startTime, double endTime, ulong count)
         {
+            if (startTime == 0 && endTime == 0)
+            {
+                startTime = StartTime(dataFilePath);
+                endTime = startTime + Length(dataFilePath) / SampleRate(dataFilePath);
+            }
+            if (count == 0)
+            {
+                count = (ulong)Length(dataFilePath);
+            }
             int nChannel;
             return GetDataReader(dataFilePath, out nChannel).LoadDataFromFileByTimeFuzzy_TimeAxis(nChannel, startTime, endTime, count);
         }
